@@ -1,0 +1,24 @@
+Imagine a game of hangman. One player picks a word and the other player guesses letters until they've either run out of guesses or they've guessed the word. Evil Hangman is a twist (inspired by http://nifty.stanford.edu/ which has a number of other gems) so that the computer will only pick a word when it specifically has to; until then, it decides what the worst possible scenario would be, given the user's guesses.
+
+For example, imagine the following pattern has been established:
+
+B _ _ _
+
+And imagine that the user has guessed 'A'. Let's also assume a tiny dictionary that only consists of the words BALL, BULL, BARN, BODE, BADE, BLAH, BAJA, and BAMA. The words can be categorized as follows:
+
+no A (2 words)
+A only as 2nd letter (3 words)
+A only as 3rd letter (1 word)
+A as 2nd and 4th letters (2 words)
+
+The program assumes that picking the category with the largest number of words (in this case, A only as the 2nd letter) will be the best, and although that's technically not always the case it's enough for this program (I'll leave it as an exercise to the reader to find a counterexample). 
+
+The code is split into two projects, one for managing the UI via Console and the other a class library to manage the game. I didn't bother with drawing a "hangman" graphic. 
+
+In the class library there are three classes: MaskGroup, WordList, and Game. The MaskList represents a set of words categorized as above. The WordList provides functionality for reading from a file and applying guesses. The Game class is exposed by the class library and is, of course, used for all the game stuff. 
+
+The magic is really in the WordList and MaskGroup, though. The WordList allows us to narrow our collection of possible words and the MaskGroup categorizes words into their respective subgroups based on guesses. These are actually just cutesy little LINQ functions, which made them pretty fun to write.
+
+The Console project has three classes: one that wraps the game loop, another that offers simple console utilities (formatting an enumerable for printing and getting/validating input), and finally the UI. 
+
+Just like with the AnagramFinder, it's not an extremely complicated program, but it's a lot of fun to play with. As a side note, by default it actually gives you 20 guesses and generally when my friends and I play, we need somewhere around 13-17, so it's not far off. 
