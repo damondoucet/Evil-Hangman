@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace EvilHangman
@@ -7,8 +6,8 @@ namespace EvilHangman
     internal class MaskGroup
     {
         //Mask might look like A _ _ B E _ R
-        public string Mask { get; set; }
-        public IEnumerable<string> Words { get; set; }
+        public readonly string Mask;
+        public readonly IEnumerable<string> Words;
 
         public MaskGroup(string mask, IEnumerable<string> words)
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,8 +12,7 @@ namespace EvilHangman
         {
             CurrentMask = new MaskGroup(
                 new string('_', wordLength),
-                ReadWordsOfSpecificLength(dictionaryPath, wordLength)
-                );
+                ReadWordsOfSpecificLength(dictionaryPath, wordLength));
         }
 
         private IEnumerable<string> ReadWordsOfSpecificLength(string dictionaryPath, int wordLength)

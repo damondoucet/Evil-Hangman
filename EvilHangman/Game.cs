@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace EvilHangman
 {
     public class Game
     {
-        private HashSet<char> _guessedLetters;
+        private readonly HashSet<char> _guessedLetters;
 
-        private WordList _wordList;
+        private readonly WordList _wordList;
         public int GuessesLeft { get; set; }
 
         public Game(string dictionaryPath, int wordLength, int initialGuesses)

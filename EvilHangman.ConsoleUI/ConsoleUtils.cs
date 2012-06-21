@@ -9,10 +9,12 @@ namespace EvilHangman.ConsoleUI
     {
         public static string FormatEnumerableCharacters(IEnumerable<char> characters)
         {
-            if (characters.Count() == 0)
+            var list = characters.ToList(); //prevent multiple enumeration
+
+            if (list.Count == 0)
                 return string.Empty;
 
-            var builder = characters.Aggregate(new StringBuilder(), (sb, c) => sb.Append(c).Append(" "));
+            var builder = list.Aggregate(new StringBuilder(), (sb, c) => sb.Append(c).Append(" "));
             return builder.Remove(builder.Length - 1, 1).ToString();
         }
 

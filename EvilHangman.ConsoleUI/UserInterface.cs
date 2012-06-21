@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using EvilHangman;
 
 namespace EvilHangman.ConsoleUI
 {
@@ -31,7 +28,7 @@ namespace EvilHangman.ConsoleUI
         {
             return ConsoleUtils.GetInput("How many letters?", "Invalid number of letters",
                 letters => { uint x; return uint.TryParse(letters, out x); },
-                letters => int.Parse(letters));
+                int.Parse);
         }
 
         public bool IsDone()
